@@ -8,13 +8,12 @@ public class Aluno extends Pessoa {
     private String curso;
     private double nota;
 
-        
     public Aluno(int matricula, String cpf, String nome, 
-                 String dataaniversario, Endereco endereco, 
+                 Date dataAniversario, Endereco endereco, 
                  String telefone, String email, String senha, 
                  Date dataDeMatricula, String curso, double nota) {
 
-        super(matricula, cpf, nome, dataaniversario, endereco, telefone, email, senha);
+        super(matricula, cpf, nome, dataAniversario, endereco, telefone, email, senha);
         this.dataDeMatricula = dataDeMatricula;
         this.curso = curso;
         this.nota = nota;
@@ -44,7 +43,4 @@ public class Aluno extends Pessoa {
         this.nota = nota;
     }
 
-    
-
-    
 }

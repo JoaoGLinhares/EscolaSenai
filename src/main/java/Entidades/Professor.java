@@ -2,18 +2,17 @@ package Entidades;
 
 import java.util.Date;
 
-public class Professor extends Pessoa{
+public class Professor extends Pessoa {
 
     private Date dataAdmissao;
     private double salario;
 
     public Professor(int matricula, String cpf, String nome, 
-                     String dataaniversario, Endereco endereco, 
+                     Date dataAniversario, Endereco endereco, 
                      String telefone, String email, String senha, 
                      Date dataAdmissao, double salario) {
                         
-        super(matricula, cpf, nome, dataaniversario, endereco, telefone, email, senha);
-        this.dataAdmissao = dataAdmissao;
+        super(matricula, cpf, nome, dataAniversario, endereco, telefone, email, senha); 
         this.salario = salario;
     }
 
@@ -32,7 +31,4 @@ public class Professor extends Pessoa{
     public void setSalario(double salario) {
         this.salario = salario;
     }
-
-    
-
 }

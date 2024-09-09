@@ -1,6 +1,7 @@
 package Entidades;
 
 public class Notas {
+    
     private int notas;
     private Aluno aluno;
     private Disciplina disciplina;
