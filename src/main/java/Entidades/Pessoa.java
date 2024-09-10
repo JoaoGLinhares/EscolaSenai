@@ -2,7 +2,7 @@ package Entidades;
 
 import java.util.Date;
 
-public class Pessoa {
+public abstract class Pessoa {
     public static int registroConta = 1001;
 
     private int matricula;
@@ -15,19 +15,18 @@ public class Pessoa {
     private String senha;
 
     public Pessoa(int matricula, String cpf, String nome, 
-              Date dataAniversario, Endereco endereco, 
-              String telefone, String email, String senha) {
-                
-    this.matricula = registroConta;
-    registroConta++;
-    this.cpf = cpf;
-    this.nome = nome;
-    this.dataAniversario = dataAniversario;
-    this.endereco = endereco;
-    this.telefone = telefone;
-    this.email = email;
-    this.senha = senha;
-}
+                  Date dataAniversario, Endereco endereco, 
+                  String telefone, String email, String senha) {
+        this.matricula = registroConta;
+        registroConta++;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.dataAniversario = dataAniversario;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+    }
 
     public Pessoa() {
         this.matricula = registroConta;
@@ -44,7 +43,7 @@ public class Pessoa {
 
     public void setCpf(String cpf) {
         if (cpf == null || cpf.isEmpty() || !isValidCpf(cpf)) {
-            System.out.println("Numero de CPF invalido");
+            System.out.println("Número de CPF inválido");
         } else {
             this.cpf = cpf;
         }
@@ -58,12 +57,12 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Date getDataaniversario() {
+    public Date getDataAniversario() {
         return dataAniversario;
     }
 
-    public void setDataaniversario(Date dataaniversario) {
-        this.dataAniversario = dataaniversario;
+    public void setDataAniversario(Date dataAniversario) {
+        this.dataAniversario = dataAniversario;
     }
 
     public Endereco getEndereco() {
@@ -96,26 +95,31 @@ public class Pessoa {
 
     public void setSenha(String senha) {
         if (senha == null || senha.isEmpty() || !isValidSenha(senha)) {
-            System.out.println("Senha invalida");
+            System.out.println("Senha inválida");
         } else {
             this.senha = senha;
         }
     }
 
-
-    private boolean isValidCpf(String cpf){
-        if(cpf.length() != 11){
-            return false;
-        }else{
-            return true;
-        }
+    private boolean isValidCpf(String cpf) {
+        return cpf.length() == 11;
     }
 
-    private boolean isValidSenha(String senha){
-        if (senha.length() < 8){
-            return false;
-        }else {
-            return true;
-        }
+    private boolean isValidSenha(String senha) {
+        return senha.length() >= 8;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "matricula=" + matricula +
+                ", cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", dataAniversario=" + dataAniversario +
+                ", endereco=" + endereco +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
     }
 }

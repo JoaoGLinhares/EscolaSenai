@@ -6,17 +6,17 @@ public class Aluno extends Pessoa {
 
     private Date dataDeMatricula;
     private String curso;
-    private double nota;
+    private Situacao situacao;
 
     public Aluno(int matricula, String cpf, String nome, 
                  Date dataAniversario, Endereco endereco, 
                  String telefone, String email, String senha, 
-                 Date dataDeMatricula, String curso, double nota) {
+                 Date dataDeMatricula, String curso, Situacao situacao) {
 
         super(matricula, cpf, nome, dataAniversario, endereco, telefone, email, senha);
         this.dataDeMatricula = dataDeMatricula;
         this.curso = curso;
-        this.nota = nota;
+        this.situacao = situacao;
     }
 
     public Date getDataDeMatricula() {
@@ -35,12 +35,20 @@ public class Aluno extends Pessoa {
         this.curso = curso;
     }
 
-    public double getNota() {
-        return nota;
+    public Situacao getSituacao() {
+        return situacao;
     }
 
-    public void setNota(double nota) {
-        this.nota = nota;
+    public void setSituacao(Situacao situacao) {
+        this.situacao = situacao;
     }
 
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "dataDeMatricula=" + dataDeMatricula +
+                ", curso='" + curso + '\'' +
+                ", situacao=" + situacao.getStts() +
+                '}';
+    }
 }
